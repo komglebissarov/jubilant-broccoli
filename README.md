@@ -50,9 +50,6 @@ Other configuration can be decided by yourself, based on the instance being used
 
 ## Questions
 
- 0. What is going on? (Optional)\
- Please see comments.md for guide!
-
  1. How long did you spend on this assessment in total?\
  1.5 hours for the task.  
  Around 3 hours for reading docs and conducting experiments with GCP core concepts and CDKTF( It was my first time using both )
@@ -67,3 +64,6 @@ Other configuration can be decided by yourself, based on the instance being used
  - app and db user for app with workload identity for testing DB conectivity & auth
  - runner infrastructure
  - helm chart for express service
+
+ 4. What is going on? (Optional)\
+ Please see `comments.md` for guide!

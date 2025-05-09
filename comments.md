@@ -58,7 +58,7 @@ nc -vz <pgIp> 5432
 > ✅ You can test locally using your authenticated gcloud session:
 
 ```bash
-PROJECT_ID="amazing-etching-459312-c7"
+PROJECT_ID="<projectId>"
 IMAGE_ID="europe-west1-docker.pkg.dev/${PROJECT_ID}/sisuxgleb/express:latest"
 
 gcloud config set project $PROJECT_ID
@@ -78,7 +78,7 @@ kubectl apply -f kubernetes/
 
 To receive "You have successfully run the sisu-tech application!":
 ```bash
-# Get your load balancer public IP (VPC->IP addresses)
+# Get your load balancer public IP from console UI (VPC->IP addresses) or by any other means
 curl $LB_IP
 ```
 
