@@ -35,6 +35,7 @@ To run:
 ```bash
 cd terraform
 
+npm i
 # This should output Postgres internal IP. Can be used in the testing step.
 cdktf deploy
 ```
@@ -42,6 +43,9 @@ cdktf deploy
 To test SQL network connectivity:
 
 ```bash
+PROJECT_ID="<projectId>"
+gcloud config set project $PROJECT_ID
+
 gcloud container clusters get-credentials k8s-main --location=europe-west1-c
 kubectl run -it --rm --image ubuntu test-pod bash
 
