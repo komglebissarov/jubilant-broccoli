@@ -58,7 +58,7 @@ Other configuration can be decided by yourself, based on the instance being used
  Understanding CDKTF, getting used to GCP after Azure (massive upgrade)
 
  3. If you had an unlimited amount of time to complete this task, what would you have done differently?\
- #### Priority order:
+ Priority order:
  - DNS for gke ingress(public) and sql(private)
  - ingress controller and cert manager
  - app and db user for app with workload identity for testing DB conectivity & auth
