@@ -3,7 +3,7 @@ import { App, TerraformStack } from 'cdktf';
 import { GoogleProvider } from '@cdktf/provider-google/lib/provider';
 import { ComputeNetwork } from '@cdktf/provider-google/lib/compute-network';
 import { ComputeSubnetwork } from '@cdktf/provider-google/lib/compute-subnetwork';
-import { GKE } from './k8s';
+import { GKE } from './gke';
 import { SQL } from './sql'
 
 class Root extends TerraformStack {
