@@ -1,0 +1,43 @@
+name: main
+
+on:
+  workflow_dispatch:
+
+env:
+  IMAGE_ID: europe-west1-docker.pkg.dev/<ProjectID>/sisuxgleb/express:latest
+
+jobs:
+  build-and-push:
+    # must have network connectivity to GKE Control Plane
+    runs-on: self-hosted
+
+    permissions:
+      contents: 'read'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v43
+
+        # must configure to run
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v2
+
+      - name: Configure Docker for Artifact Registry
+        run: gcloud auth configure-docker europe-west1-docker.pkg.dev
+
+      - name: Build and push Docker image
+        run: |
+          docker build -t $IMAGE_ID ./application
+          docker push $IMAGE_ID
+
+      - name: Authenticate to Kubernetes
+        run: |
+          gcloud container clusters get-credentials k8s-main --location=europe-west1-c
+
+      - name: Set image in Kubernetes manifests
+        run: |
+          sed -i "s|IMAGE_ID|${IMAGE_ID}|g" kubernetes/deployment.yaml
+
+      - name: Apply Kubernetes manifests
+        run: |
+          kubectl apply -f kubernetes/

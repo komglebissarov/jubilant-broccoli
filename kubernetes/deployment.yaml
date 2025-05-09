@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: express
+    labels:
+        app: express
+spec:
+    replicas: 2
+    selector:
+        matchLabels:
+            app: express
+    template:
+        metadata:
+            labels:
+                app: express
+        spec:
+            containers:
+                - name: express
+                  image: "europe-west1-docker.pkg.dev/IMAGE_ID/sisuxgleb/express:latest"
+                  ports:
+                      - containerPort: 3000
