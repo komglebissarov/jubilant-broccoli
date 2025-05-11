@@ -16,6 +16,6 @@ spec:
         spec:
             containers:
                 - name: express
-                  image: "europe-west1-docker.pkg.dev/IMAGE_ID/sisuxgleb/express:latest"
+                  image: "IMAGE_ID"
                   ports:
                       - containerPort: 3000

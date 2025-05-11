@@ -41,13 +41,12 @@ class Root extends TerraformStack {
       region: region,
       k8sLocation: k8sLocation,
       controlPlaneCidrs: {
-        home: '91.129.103.153/32', // Just became public info
         vpn: '10.26.32.12/32',
         vpn2: '19.104.105.29/32',
       },
     });
 
-    new SQL(this, 'sql', {
+    new SQL(this, 'SQL', {
       region: region,
       subnetId: subnetSQL.id,
       projectId,
